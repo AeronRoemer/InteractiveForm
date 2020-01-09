@@ -28,13 +28,15 @@
         
         <label for="title">Job Role</label>
         <select id="title" name="user-title">
+          <option value="" selected disabled hidden>Choose Your Job Role</option>
           <option value="full-stack js developer">Full Stack JavaScript Developer</option>
           <option value="front-end developer">Front End Developer</option>
           <option value="back-end developer">Back End Developer</option>
-          <option value="designer">Designer</option>          
+          <option value="designer">Designer</option>           
           <option value="student">Student</option>
           <option value="other">Other</option>  
-        </select>           
+        </select> 
+        <input id="other-title" name="other-job-title" type="text" placeholder="Your Job Role">    
       </fieldset>
       
       <fieldset class="shirt">
@@ -174,5 +176,6 @@
 
   </div>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
