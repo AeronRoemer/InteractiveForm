@@ -3,6 +3,8 @@
 $('#name').focus();
 $('#other-title').hide();
 $('#color').children('option').hide();
+$('#color option[value=default]').attr("selected", "selected");
+
 
 //displays & hides 'Other' textarea based on user choice of Job Title.
 $('#title').change(function(){
@@ -18,12 +20,16 @@ $('#title').change(function(){
 
 $('#design').change(function(){
    if ($(this).val() == 'js puns'){
-       $('#color').children('option').show();
+       $('#color').children('option').show(); //displays all
+       $('#color option[value=cornflowerblue]').attr("selected", "selected"); //sets default option
+       //hides unwanted
        $('#color option[value=steelblue]').hide();
        $('#color option[value=dimgrey]').hide();
        $('#color option[value=tomato]').hide();
     } else {
-        $('#color').children('option').show();
+        $('#color').children('option').show(); //displays all
+        $('#color option[value=steelblue]').attr("selected", "selected"); //sets default option
+        //hides unwanted
         $('#color option[value=cornflowerblue]').hide();
         $('#color option[value=darkslategrey]').hide();
         $('#color option[value=gold]').hide();
