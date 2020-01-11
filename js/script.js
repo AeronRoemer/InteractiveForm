@@ -3,8 +3,8 @@
 $('#name').focus();
 $('#other-title').hide();
 $('#color').children('option').hide();
-$('#color option[value=default]').attr("selected", "selected");
-
+// variables for activity section
+let totalCost = 0;
 
 //displays & hides 'Other' textarea based on user choice of Job Title.
 $('#title').change(function(){
@@ -13,8 +13,7 @@ $('#title').change(function(){
     } else if ($(this).val() !== 'other'){
     $('#other-title').hide();
     }
-}
-)
+})
 
 //displays and hides available colors based on user choice of design. 
 
@@ -34,5 +33,21 @@ $('#design').change(function(){
         $('#color option[value=darkslategrey]').hide();
         $('#color option[value=gold]').hide();
        }
-}
-)
+})
+
+//displays or hides conference activities based on competing choices. 
+$('.activities input').change(function(){
+
+    //total cost calculations 
+    if ($(this).is(':checked')) {
+    // adds to the total cost when checked
+    totalCost += parseInt($(this).attr('data-cost'));
+    console.log(totalCost);
+    } else if ($(this).is(':not(:checked)')){
+    // subtracts when unchecked
+        totalCost -= parseInt($(this).attr('data-cost'));
+        console.log(totalCost);  
+    }
+    //displays cost total as it changes
+    $('#cost').html("<h2>Your total cost is: " +totalCost+ "</h2><br>");
+})
