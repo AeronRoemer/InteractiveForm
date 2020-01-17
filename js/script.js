@@ -8,7 +8,6 @@ $('#paypal').hide();
 $('#bitcoin').hide();
 // variables for activity section
 const activitesInput = $('.activities input');
-const timeSlot = $('input').attr('data-day-and-time');
 let totalCost = 0;
 // variables for payment section
 const payment = $('#payment');
@@ -44,18 +43,17 @@ $('#design').change(function(){
 
 //displays or hides conference activities based on competing choices. 
 activitesInput.change(function(){
-
-    for (let i = 0; i < activitesInput.length; i++) { 
-    //     if ($(this).attr('data-day-and-time') == [i].attr('data-day-and-time')){
-    //     [i].attr('data-day-and-time').hide();
-    //     console.log(i);
-    //   }
-    let activity = activitesInput[i]
-    console.log(activity);
-    }
-
     console.log($(this).attr('data-day-and-time'));
-    console.log($('.activities input'));
+
+// I need to go over each timeslot and disable any conflicting activites
+// I'm not sure quite what's wrong with this loop, or what syntax I'd have to use to get it right. 
+
+    activitesInput.each(function(index, activity){
+        const dateTime = index.attr('data-day-and-time');
+        if ($(this).attr('data-day-and-time') === dateTime){
+            console.log(activity, index);
+        }
+    });
 
     //total cost calculations 
     if ($(this).is(':checked')) {
@@ -65,7 +63,7 @@ activitesInput.change(function(){
     // subtracts when unchecked
         totalCost -= parseInt($(this).attr('data-cost'));
     }
-    //displays cost total as it changes
+    //displays cost total as it changes, or no cost if the user refreshes page and goes into the neagtive. 
     if (totalCost >= 0 ){
     $('#cost').html("<h2>Your total cost is: " +totalCost+ "</h2><br>");
     } else {
