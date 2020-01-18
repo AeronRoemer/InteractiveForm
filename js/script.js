@@ -10,11 +10,23 @@ $('#bitcoin').hide();
 const activitesInput = $('.activities input');
 let totalCost = 0;
 // variables and regex variables for payment section
-
 const payment = $('#payment');
+const userName = $('#name');
+const activitiesSelected = $('.activities')
+const email = $('#mail');
+const ccNum = $('#cc-num');
+
 const zipReg = /^[0-9]{5}$/;
+const zipVal = $('#zip').val();
+
+const ccvVal = $('#ccv').val();
 const ccvReg = /^\d{3}$/;
+
+const ccVal = $('#cc-num').val();
+const ccReg = /\b(?:3[47]\d{2}([\ \-]?)\d{6}\1\d|(?:(?:4\d|5[1-5]|65)\d{2}|6011)([\ \-]?)\d{4}\2\d{4}\2)\d{4}\b/
+
 const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let submit = false;
 
 //displays & hides 'Other' textarea based on user choice of Job Title.
 $('#title').change(function(){
@@ -45,17 +57,20 @@ $('#design').change(function(){
        }
 })
 
-//displays or hides conference activities based on competing choices. 
+
 activitesInput.change(function(e){
+
     let dateTime = $(this).attr('data-day-and-time');
-    // disable 
+    //disables or enables conference activities based on competing choices. 
     activitesInput.each(function(index, activity){
+        // if the target is checked, and the timeslot matches an unchecked timeslot, it will be disabled 
         if ($(e.target).is(':checked') && (dateTime === $(activity).attr('data-day-and-time') && $(activity).is(':not(:checked)')))
         {$(activity).prop('disabled', true)
      } else if (!$(e.target).is(':checked')){
             $(activity).prop('disabled', false);
         }
     });
+    
 
     //total cost calculations 
     if ($(this).is(':checked')) {
@@ -92,25 +107,64 @@ if (payment.val() === "credit card"){
 }
 });
 
-//functions to check for valid submission behavior
+//FUNCTIONS TO CHECK FOR VALID SUBMISSION BEHAVIOR
+//checks to make sure areas contain information
 
- function ccValid (){
-    const ccNum = /^\d{13,16}$/;
-    const ccIn = $('#cc-num').val();
-    ccNum.test(ccIn);
-   }
-ccValid();
-
-//makes sure there is at least one character
 function containsThings (input){
-    if (input > 0){
+    if (input.val().length > 0){
         return true;
+    } else if (!$('#length-err').length) {
+        $(input).before('<span id="length-err" class="error">Please provide an entry</span>');
+       submit = false;
     }
 }
 
+function boxesChecked (){
+ if ($('input:checkbox:checked').length > 0){
+    console.log('selections')
+     return submit = true;
+ } else if (!$('#select-err').length) {
+    $('#cost').html('<span id="select-err" class="error">Please select at least one event</span>');
+    submit = false;
+ }
+}
+
+// regex validation for credit card and email
+function creditValidation (){
+    if (zipReg.test(zipVal) && ccvReg.test(ccvVal) && ccReg.test(ccVal)) {
+        $('#cc-error').remove();
+        console.log('why')
+        return submit = true;  
+    } else if (!('#cc-error').length){
+        ccNum.after('<span id="cc-error" class="error">Please provide a valid entry</span><br>');
+        submit = false;
+    }
+    console.log('why?!')
+}
+
+function emailValidation (){
+    if (emailReg.test(email.val())) {
+        $('#email-error').remove();
+        return submit = true;
+    } else if(!$('#email-error').length){
+        email.after('<span id="email-error" class="error">Please provide a valid entry</span><br>');
+        submit = false;
+    } 
+}
+//checks that credit card is selected and validates
+
+function ccSelected(){
+    if (payment.val() === "credit card" && creditValidation()){
+       console.log('okay')
+    }
+}
 //submit event listener 
 
 $('#main-form').submit(function (e){
     e.preventDefault();
-
+    if (containsThings(userName) && containsThings(email));
+   creditValidation();
+   emailValidation();
+   boxesChecked();
+   
 });

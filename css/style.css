@@ -45,6 +45,15 @@ form {
 	border-radius: 3px;
 }
 
+.error {
+	color: red;
+	margin-left: 5px;
+  }
+  
+  label .error {
+	display: inline;
+  }
+
 fieldset,
 legend,
 button {
