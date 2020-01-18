@@ -25,6 +25,7 @@ const ccReg = /^[0-9]{13,16}$/;
 const ccNum = $('#cc-num');
 
 const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//submit variable changed by submit functions
 let submit = false;
 
 //displays & hides 'Other' textarea based on user choice of Job Title.
@@ -121,7 +122,7 @@ function containsThings (input){
 function boxesChecked (){
  if ($('input:checkbox:checked').length > 0){
     console.log('selections')
-     return submit = true;
+    submit = true;
  } else if (!$('#select-err').length) {
     $('#cost').html('<span id="select-err" class="error">Please select at least one event</span>');
     submit = false;
@@ -134,18 +135,19 @@ function creditValidation (){
     if (ccReg.test(ccNum.val()) && zipReg.test(zipNum.val()) && cvvReg.test(cvvNum.val())) {
         $('#cc-error').remove();
         console.log('okay');
-        return submit = true;  
+        submit = true;
+        return true;
     } else if (!$('#cc-error').length){
         $('#credit-card').after('<span id="cc-error" class="error">Please provide a valid credit card entry</span><br>');
         console.log('not okay')
-        return submit = false;
+        submit = false;
     }
 }
 
 function emailValidation (){
     if (emailReg.test(email.val())) {
         $('#email-error').remove();
-        return submit = true;
+        submit = true;
     } else if(!$('#email-error').length){
         email.after('<span id="email-error" class="error">Please provide a valid entry</span><br>');
         submit = false;
@@ -155,16 +157,18 @@ function emailValidation (){
 
 function ccSelected(){
     if (payment.val() === "credit card" && creditValidation()){
-       console.log('okay')
+       submit = true;
     }
 }
+
 //submit event listener 
 
 $('#main-form').submit(function (e){
-    e.preventDefault();
-    if (containsThings(userName) && containsThings(email));
-   creditValidation();
+   containsThings(userName);
+   containsThings(email);
    emailValidation();
    boxesChecked();
-   
+   ccSelected();
+   if (!submit){
+   e.preventDefault()}
 });
