@@ -14,16 +14,15 @@ const payment = $('#payment');
 const userName = $('#name');
 const activitiesSelected = $('.activities')
 const email = $('#mail');
-const ccNum = $('#cc-num');
 
 const zipReg = /^[0-9]{5}$/;
-const zipVal = $('#zip').val();
+const zipNum = $('#zip');
 
-const ccvVal = $('#ccv').val();
-const ccvReg = /^\d{3}$/;
+const cvvNum = $('#cvv');
+const cvvReg = /^[0-9]{3,4}$/;
 
-const ccVal = $('#cc-num').val();
-const ccReg = /\b(?:3[47]\d{2}([\ \-]?)\d{6}\1\d|(?:(?:4\d|5[1-5]|65)\d{2}|6011)([\ \-]?)\d{4}\2\d{4}\2)\d{4}\b/
+const ccReg = /^[0-9]{13,16}$/;
+const ccNum = $('#cc-num');
 
 const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let submit = false;
@@ -129,17 +128,18 @@ function boxesChecked (){
  }
 }
 
+
 // regex validation for credit card and email
 function creditValidation (){
-    if (zipReg.test(zipVal) && ccvReg.test(ccvVal) && ccReg.test(ccVal)) {
+    if (ccReg.test(ccNum.val()) && zipReg.test(zipNum.val()) && cvvReg.test(cvvNum.val())) {
         $('#cc-error').remove();
-        console.log('why')
+        console.log('okay');
         return submit = true;  
-    } else if (!('#cc-error').length){
-        ccNum.after('<span id="cc-error" class="error">Please provide a valid entry</span><br>');
-        submit = false;
+    } else if (!$('#cc-error').length){
+        $('#credit-card').after('<span id="cc-error" class="error">Please provide a valid credit card entry</span><br>');
+        console.log('not okay')
+        return submit = false;
     }
-    console.log('why?!')
 }
 
 function emailValidation (){
