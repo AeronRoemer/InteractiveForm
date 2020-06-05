@@ -1,14 +1,16 @@
-//initial display changes made with jQuery.
-//without these, site will dislay plain HTML design.
+// display changes made with jQuery.
+// without these, site will dislay plain HTML design.
 $('#name').focus();
 $('#other-title').hide();
 $('#color').children('option').hide();
 $('#credit-card').hide();
 $('#paypal').hide();
 $('#bitcoin').hide();
+
 // variables for activity section
 const activitesInput = $('.activities input');
 let totalCost = 0;
+
 // variables and regex variables for payment section
 const payment = $('#payment');
 const userName = $('#name');
@@ -25,6 +27,7 @@ const ccReg = /^[0-9]{13,16}$/;
 const ccNum = $('#cc-num');
 
 const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 //submit variable changed by submit functions
 let submit = false;
 
@@ -37,11 +40,11 @@ $('#title').change(function(){
     }
 })
 
-//displays and hides available colors based on user choice of design. 
-
+//displays and hides available colors based on user choice of design.
+//could be refactored in a more DRY way, but since it's just 2 small groups I left it. 
 $('#design').change(function(){
    if ($(this).val() == 'js puns'){
-       $('#color').children('option').show(); //displays all
+       $('#color').children('option').show(); //displays all children
        $('#color option[value=cornflowerblue]').attr("selected", "selected"); //sets default option
        //hides unwanted
        $('#color option[value=steelblue]').hide();
@@ -57,7 +60,7 @@ $('#design').change(function(){
        }
 })
 
-
+//function to handle activities - handles timeslots and cost
 activitesInput.change(function(e){
 
     let dateTime = $(this).attr('data-day-and-time');
@@ -134,12 +137,10 @@ function boxesChecked (){
 function creditValidation (){
     if (ccReg.test(ccNum.val()) && zipReg.test(zipNum.val()) && cvvReg.test(cvvNum.val())) {
         $('#cc-error').remove();
-        console.log('okay');
         submit = true;
         return true;
     } else if (!$('#cc-error').length){
         $('#credit-card').after('<span id="cc-error" class="error">Please provide a valid credit card entry</span><br>');
-        console.log('not okay')
         submit = false;
     }
 }
@@ -153,6 +154,7 @@ function emailValidation (){
         submit = false;
     } 
 }
+
 //checks that credit card is selected and validates
 
 function ccSelected(){
