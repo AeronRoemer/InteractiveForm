@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Patua+One&display=swap')
 
 //Color Variables
-$light_1: #FFFFFF
-$light_2: #c2c4e5
-$med_3: #07119C
-$dark_4: #3F3F3F
-$dark_5: #03063A
+$blk: #000000
+$grey: #36363f
+$blue: #07119C
+$offwht: #fafafa
+$dkblu: #03063A
 
 //Font Mixins
 @mixin h1 
   font-family: 'Patua One', sans-serif
-  color: $light_2
+  color: $offwht
   font-size: 5em
 
 @mixin h2
   font-family: 'Nunito', sans-serif
-  color: $light_1
+  color: $blk
   font-size: 2.5em  
   font-weight: 600
 
 @mixin font
   font-family: 'Nunito', sans-serif
-  color: $light_1
+  color: $blk
   font-size: 1.2em  
   font-weight: 300
 
@@ -34,7 +34,7 @@ header
 
 body
     @include font
-    background: $dark_5
+    background: $dkblu
 
 h1
     @include h1
@@ -52,14 +52,14 @@ a
     margin: 50px auto
 
 hr
-    color: $dark_5
+    color: $dkblu
     margin-bottom: 20px
 
 // FORM STYLES
 
 form
     padding: 2% 3% 4% 3%
-    background: $dark_4
+    background: $offwht
     border: none
     border-radius: 20px
 
@@ -72,30 +72,30 @@ fieldset
 input
     font-style: italic
     font-size: .75em
-    color: $light_1
+    color: $blk
     margin-bottom: 13px
     display: inline
 
 input:focus
     font-style: none
     font-size: .75em
-    border-color: $dark_5
+    border-color: $dkblu
     transition: border-color .5
     
 select
     font-size: .75em
-    color: $light_1
-    background: $dark_4
+    color: $blk
+    background: $offwht
     border: none
-    border-bottom:2px dashed $light_2
+    border-bottom:2px dashed $grey
     margin-bottom: 13px
     -webkit-appearance: menulist-button
 
 button 
     font-size: 1.75em
-    color: $light_1
+    color: $blk
     padding: .85em .65em
-    background: $dark_4
+    background: $offwht
     margin: 1.25em 0 .5em
     border: 1px solid black
     border-radius: 15px
@@ -103,20 +103,20 @@ button
     display: inline
 
 button:hover
-    background: $dark_5
+    background: $dkblu
 
 select:focus
     font-size: .75em
-    background: $dark_5
+    background: $dkblu
 
 .basic
     width: 70%
-    background: $dark_4
+    background: $offwht
     border: none
-    border-bottom:2px dashed $light_2
+    border-bottom:2px dashed $grey
     
 .error
-    color: 'red'
+    color: #FF0000
     margin-left: 5px
     font-weight: 600
 

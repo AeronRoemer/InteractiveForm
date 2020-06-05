@@ -117,7 +117,7 @@ function containsThings (input){
     if (input.val().length > 0){
         return true;
     } else if (!$('#length-err').length) {
-        $(input).after('<br><span id="length-err" class="error">Please provide an entry</span>');
+        $(input).after('<br><span id="length-err" class="error">Please provide an entry</span><br>');
        submit = false;
     }
 }
@@ -127,7 +127,7 @@ function boxesChecked (){
     console.log('selections')
     submit = true;
  } else if (!$('#select-err').length) {
-    $('#cost').html('<br><span id="select-err" class="error">Please select at least one event</span>');
+    $('#cost').html('<br><span id="select-err" class="error">Please select at least one event</span><br>');
     submit = false;
  }
 }

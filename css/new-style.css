@@ -9,7 +9,7 @@ header {
 
 body {
   font-family: "Nunito", sans-serif;
-  color: #FFFFFF;
+  color: #000000;
   font-size: 1.2em;
   font-weight: 300;
   background: #03063A;
@@ -17,13 +17,13 @@ body {
 
 h1 {
   font-family: "Patua One", sans-serif;
-  color: #c2c4e5;
+  color: #fafafa;
   font-size: 5em;
 }
 
 .subheader {
   font-family: "Nunito", sans-serif;
-  color: #FFFFFF;
+  color: #000000;
   font-size: 2.5em;
   font-weight: 600;
   margin: 20px 0em 20px;
@@ -48,7 +48,7 @@ hr {
 
 form {
   padding: 2% 3% 4% 3%;
-  background: #3F3F3F;
+  background: #fafafa;
   border: none;
   border-radius: 20px;
 }
@@ -64,7 +64,7 @@ fieldset {
 input {
   font-style: italic;
   font-size: 0.75em;
-  color: #FFFFFF;
+  color: #000000;
   margin-bottom: 13px;
   display: inline;
 }
@@ -78,19 +78,19 @@ input:focus {
 
 select {
   font-size: 0.75em;
-  color: #FFFFFF;
-  background: #3F3F3F;
+  color: #000000;
+  background: #fafafa;
   border: none;
-  border-bottom: 2px dashed #c2c4e5;
+  border-bottom: 2px dashed #36363f;
   margin-bottom: 13px;
   -webkit-appearance: menulist-button;
 }
 
 button {
   font-size: 1.75em;
-  color: #FFFFFF;
+  color: #000000;
   padding: 0.85em 0.65em;
-  background: #3F3F3F;
+  background: #fafafa;
   margin: 1.25em 0 0.5em;
   border: 1px solid black;
   border-radius: 15px;
@@ -109,13 +109,13 @@ select:focus {
 
 .basic {
   width: 70%;
-  background: #3F3F3F;
+  background: #fafafa;
   border: none;
-  border-bottom: 2px dashed #c2c4e5;
+  border-bottom: 2px dashed #36363f;
 }
 
 .error {
-  color: "red";
+  color: #FF0000;
   margin-left: 5px;
   font-weight: 600;
 }
