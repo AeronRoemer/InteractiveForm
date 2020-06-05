@@ -117,7 +117,7 @@ function containsThings (input){
     if (input.val().length > 0){
         return true;
     } else if (!$('#length-err').length) {
-        $(input).before('<span id="length-err" class="error">Please provide an entry</span>');
+        $(input).after('<span id="length-err" class="error">Please provide an entry</span>');
        submit = false;
     }
 }

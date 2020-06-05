@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Patua+One&display=swap')
+
+//Color Variables
+$light_1: #FFFFFF
+$light_2: #c2c4e5
+$med_3: #07119C
+$dark_4: #3F3F3F
+$dark_5: #03063A
+
+//Font Mixins
+@mixin h1 
+  font-family: 'Patua One', sans-serif
+  color: $light_2
+  font-size: 5em
+
+@mixin h2
+  font-family: 'Nunito', sans-serif
+  color: $light_1
+  font-size: 2.5em  
+  font-weight: 600
+
+@mixin font
+  font-family: 'Nunito', sans-serif
+  color: $light_1
+  font-size: 1.2em  
+  font-weight: 300
+
+//MAIN STYLES
+*
+    box-sizing: border-box
+
+header
+    text-align: center
+
+body
+    @include font
+    background: $dark_5
+
+h1
+    @include h1
+
+.subheader
+    @include h2
+    margin: 20px 0em 20px
+
+.subsubheader
+    font-weight:600
+a
+    text-decoration: none
+
+.container
+    margin: 50px auto
+
+hr
+    color: $dark_5
+    margin-bottom: 20px
+
+// FORM STYLES
+
+form
+    padding: 2% 3% 4% 3%
+    background: $dark_4
+    border: none
+    border-radius: 20px
+
+.main-form
+    margin: 5%
+
+fieldset
+    margin: 20px
+
+input
+    font-style: italic
+    font-size: .75em
+    color: $light_1
+    margin-bottom: 13px
+    display: inline
+
+input:focus
+    font-style: none
+    font-size: .75em
+    border-color: $dark_5
+    transition: border-color .5
+    
+select
+    font-size: .75em
+    color: $light_1
+    background: $dark_4
+    border: none
+    border-bottom:2px dashed $light_2
+    margin-bottom: 13px
+    -webkit-appearance: menulist-button
+
+button 
+    font-size: 1.75em
+    color: $light_1
+    padding: .85em .65em
+    background: $dark_4
+    margin: 1.25em 0 .5em
+    border: 1px solid black
+    border-radius: 15px
+    transition: all 0.5s
+    display: inline
+
+button:hover
+    background: $dark_5
+
+select:focus
+    font-size: .75em
+    background: $dark_5
+
+.basic
+    width: 70%
+    background: $dark_4
+    border: none
+    border-bottom:2px dashed $light_2
+    
+.error
+    color: #FFF2EB
+    margin-left: 5px
+    font-weight: 600
+
+.activities 
+    input
+        margin-top: 7px
+        margin-bottom: 7px

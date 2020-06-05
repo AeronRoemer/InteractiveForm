@@ -3,29 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register for Full Stack Conf</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Register for Full Stack Conf</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/new-style.css">
 </head>
 <body>
 	<div class="container">
     
     <header>
-      <span>Register for</span>
-      <h1>Full Stack Conf</h1>
+      <h1>Conference Registration</h1>
     </header>
 
-    <form id="main-form" action="index.html" method="post" novalidate>
+    <form id="main-form" class="main-form" action="index.html" method="post" novalidate>
               
       <fieldset>         
-        <legend>Basic Info</legend>
-        
+        <legend class="subheader"><span>Basic Info</span></legend>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="user-name">
-        
+        <input class="basic" type="text" id="name" name="user-name" value="Jane Doe">
+        <br>
         <label for="mail">Email:</label>
-        <input type="email" id="mail" name="user-email">
-        
+        <input class="basic" type="email" id="mail" name="user-email" value="you@email.com">
+        <br>
         <label for="title">Job Role</label>
         <select id="title" name="user-title">
           <option selected disabled hidden>Choose Your Job Role</option>
@@ -40,8 +38,8 @@
       </fieldset>
       
       <fieldset class="shirt">
-        <legend>T-Shirt Info</legend>
-        
+        <legend class="subsubheader"><b>T-Shirt Info</b></legend>
+        <br>
         <div class="shirt-box">
           <div>
             <label for="size">Size:</label>
@@ -80,46 +78,45 @@
 
       <div id="registration-and-cost">
       <fieldset class="activities">
-        <legend>Register for Activities</legend>
+        <legend class="subheader">Register for Activities</legend>
           <label>
             <input type="checkbox" name="all" data-cost="200"> Main Conference — $200
-          </label>
+          </label><br>
           <div id="tuesday-am">
             <label>
               <input type="checkbox" name="js-frameworks" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
               JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100
-            </label>
+            </label><br>
             <label>
               <input type="checkbox" name="express" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
               Express Workshop — Tuesday 9am-12pm, $100
-            </label>
+            </label><br>
           </div>
           <div id="tuesday-pm">
             <label>
               <input type="checkbox" name="js-libs" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
               JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100
-            </label>
+            </label><br>
             <label>
               <input type="checkbox" name="node" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
               Node.js Workshop — Tuesday 1pm-4pm, $100
-            </label> 
+            </label> <br>
           </div>         
           <label>
             <input type="checkbox" name="build-tools" data-day-and-time="Wednesday 9am-12pm" data-cost="100"> 
             Build tools Workshop — Wednesday 9am-12pm, $100
           </label>
-          <label>
+          <label><br>
             <input type="checkbox" name="npm" data-day-and-time="Wednesday 1pm-4pm" data-cost="100"> 
             npm Workshop — Wednesday 1pm-4pm, $100
-          </label>
-          <div id="cost">
+          </label><br><br>
+          <div id="cost" class="subsubheader">
           </div>
         </div>          
-          
       </fieldset>
       <fieldset>
-        <legend>Payment Info</legend>
-
+        <legend class="subheader">Payment Info</legend>
+        <br>
         <label for="payment">I'm going to pay with:</label>
         <select id="payment" name="user-payment">
           <option value="select method" disabled hidden selected="selected">Select Payment Method</option>
@@ -176,11 +173,11 @@
 
         <div id="bitcoin" class="bitcoin">
         	<p>If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
-        </div>                  
-
+        </div> <br>                 
+        <button type="submit">Register</button>
       </fieldset>        
         
-      <button type="submit">Register</button>
+      
       
     </form>
 

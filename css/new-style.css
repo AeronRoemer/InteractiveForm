@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Patua+One&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #FFFFFF;
+  font-size: 1.2em;
+  font-weight: 300;
+  background: #03063A;
+}
+
+h1 {
+  font-family: "Patua One", sans-serif;
+  color: #c2c4e5;
+  font-size: 5em;
+}
+
+.subheader {
+  font-family: "Nunito", sans-serif;
+  color: #FFFFFF;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin: 20px 0em 20px;
+}
+
+.subsubheader {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 50px auto;
+}
+
+hr {
+  color: #03063A;
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 2% 3% 4% 3%;
+  background: #3F3F3F;
+  border: none;
+  border-radius: 20px;
+}
+
+.main-form {
+  margin: 5%;
+}
+
+fieldset {
+  margin: 20px;
+}
+
+input {
+  font-style: italic;
+  font-size: 0.75em;
+  color: #FFFFFF;
+  margin-bottom: 13px;
+  display: inline;
+}
+
+input:focus {
+  font-style: none;
+  font-size: 0.75em;
+  border-color: #03063A;
+  transition: border-color 0.5;
+}
+
+select {
+  font-size: 0.75em;
+  color: #FFFFFF;
+  background: #3F3F3F;
+  border: none;
+  border-bottom: 2px dashed #c2c4e5;
+  margin-bottom: 13px;
+  -webkit-appearance: menulist-button;
+}
+
+button {
+  font-size: 1.75em;
+  color: #FFFFFF;
+  padding: 0.85em 0.65em;
+  background: #3F3F3F;
+  margin: 1.25em 0 0.5em;
+  border: 1px solid black;
+  border-radius: 15px;
+  transition: all 0.5s;
+  display: inline;
+}
+
+button:hover {
+  background: #03063A;
+}
+
+select:focus {
+  font-size: 0.75em;
+  background: #03063A;
+}
+
+.basic {
+  width: 70%;
+  background: #3F3F3F;
+  border: none;
+  border-bottom: 2px dashed #c2c4e5;
+}
+
+.error {
+  color: #FFF2EB;
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.activities input {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+/*# sourceMappingURL=new-style.css.map */
