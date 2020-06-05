@@ -117,7 +117,7 @@ function containsThings (input){
     if (input.val().length > 0){
         return true;
     } else if (!$('#length-err').length) {
-        $(input).after('<span id="length-err" class="error">Please provide an entry</span>');
+        $(input).after('<br><span id="length-err" class="error">Please provide an entry</span>');
        submit = false;
     }
 }
@@ -127,7 +127,7 @@ function boxesChecked (){
     console.log('selections')
     submit = true;
  } else if (!$('#select-err').length) {
-    $('#cost').html('<span id="select-err" class="error">Please select at least one event</span>');
+    $('#cost').html('<br><span id="select-err" class="error">Please select at least one event</span>');
     submit = false;
  }
 }
@@ -140,7 +140,7 @@ function creditValidation (){
         submit = true;
         return true;
     } else if (!$('#cc-error').length){
-        $('#credit-card').after('<span id="cc-error" class="error">Please provide a valid credit card entry</span><br>');
+        $('#credit-card').after('<br><span id="cc-error" class="error">Please provide a valid credit card entry</span><br>');
         submit = false;
     }
 }
@@ -150,7 +150,7 @@ function emailValidation (){
         $('#email-error').remove();
         submit = true;
     } else if(!$('#email-error').length){
-        email.after('<span id="email-error" class="error">Please provide a valid entry</span><br>');
+        email.after('<br><span id="email-error" class="error">Please provide a valid entry</span><br>');
         submit = false;
     } 
 }
@@ -166,6 +166,7 @@ function ccSelected(){
 //submit event listener 
 
 $('#main-form').submit(function (e){
+   e.preventDefault()
    containsThings(userName);
    containsThings(email);
    emailValidation();
